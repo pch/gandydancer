@@ -248,6 +248,9 @@ unless ENV['SKIP_AUTH']
   prepend_file 'config/routes.rb', %{require_dependency "admin_constraint"\n}
 end
 
+copy_file "bundler_audit.rake", "lib/tasks/bundler_audit.rake"
+append_file "Rakefile", %{\ntask default: "bundle:audit"\n}
+
 run 'bundle install'
 
 rake 'db:reset'
