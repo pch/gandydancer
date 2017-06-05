@@ -1,0 +1,115 @@
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+
+  &.button--outline,
+  &.button--primary,
+  &.button--facebook {
+    padding: 0.7em 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+
+  &.button--menu {
+    font-weight: 500;
+  }
+
+  &.button--primary {
+    background-color: $blue;
+    border: 1px $blue solid;
+  }
+
+  &.button--plain {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  &.button--primary.button--plain {
+    color: $blue;
+  }
+
+  &.button--outline {
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &.button svg {
+    vertical-align: middle;
+    fill: rgba(0, 0, 0, .44)
+  }
+
+  &.button img {
+    vertical-align: middle;
+  }
+
+  &.button--facebook {
+    background-color: #3b5998;
+    background-image: linear-gradient(-1deg, #3B5999 0%, #4364AB 100%);
+    border: 1px solid #3B5895;
+  }
+
+  &.button--facebook {
+    border-color: #3b5998;
+    border-bottom-color: darken(#3b5998, 10%);
+    background-color: lighten(#3b5998, 5%);
+    color: #fff
+  }
+
+  &.button--like.liked svg {
+    fill: $red;
+  }
+}
+
+
+// inline buton
+span.follow .button {
+  &.button--primary,
+  &.button--outline {
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+
+  &.button--primary {
+    border: 1px rgba(0, 0, 0, 0.2) $blue;
+    background: transparent;
+    color: $blue;
+  }
+}
+
+.buttons {
+  width: 100%;
+  @include clearfix;
+
+  .buttons--left {
+    float: left;
+  }
+
+  .buttons--right {
+    float: right;
+    text-align: right;
+
+    button {
+      margin-left: 1em;
+    }
+  }
+
+  .buttons__button-wrapper {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .button__counter {
+    margin-left: 4px;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+}

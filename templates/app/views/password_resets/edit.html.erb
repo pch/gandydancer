@@ -1,0 +1,6 @@
+<h2>Change password</h2>
+
+<%= simple_form_for @user, url: password_reset_path(params[:id]) do |f| %>
+  <%= f.input :password, label: "New password" %>
+  <%= f.button :submit, "Save password" %>
+<% end %>

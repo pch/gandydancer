@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+ORIGINAL_DIR=`pwd`
+GANDYDANCER_BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $GANDYDANCER_BIN_DIR/../
+
+PROJECT_NAME=$1
+shift
+
+# TODO: expand relative paths, support absolute paths
+#       currently `gandydancer ~/somedir/proj` won't work
+rails new $ORIGINAL_DIR/$PROJECT_NAME "$@" --rc=.railsrc

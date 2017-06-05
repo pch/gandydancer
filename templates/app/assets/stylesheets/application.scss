@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+@import 'components/variables';
+
+$em-base: 14px;
+
+// Colors
+$blue: #3897f0;
+$dark-gray: #333;
+$gray: rgba(0, 0, 0, 0.6);
+$light-gray: rgba(0, 0, 0, 0.044);
+$lightest-gray: rgba(0, 0, 0, 0.05);
+$light-red: #FBE3E4;
+$light-yellow: #FFF6BF;
+$light-green: #8aba56;
+$red: #FC625D;
+
+$base-background-color: #fff;
+$base-font-family: $system;
+
+// Text color
+$base-font-color: rgba(0, 0, 0, 0.8);
+$light-font-color: rgba(0, 0, 0, 0.44);;
+
+// Links
+$base-link-color: $light-font-color;
+$hover-link-color: rgba(0, 0, 0, 0.6);
+
+$base-font-size: $em-base;
+$base-line-height: 1.43;
+
+// Borders
+$base-border-color: rgba(0, 0, 0, 0.078);
+
+$alert-color: $light-yellow;
+$error-color: $light-red;
+$notice-color: lighten(#12A5F4, 40);
+$success-color: $light-green;
+
+@import "bourbon";
+@import "components/base";
+@import "simple_form";
+
+// Application-specific
+// @import "shared";
+// @import "articles";
+
+header,
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+

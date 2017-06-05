@@ -1,0 +1,11 @@
+<%= form_tag(sessions_path) do %>
+  <% if flash[:alert].present? %>
+    <p class="form-error-message"><%= flash[:alert] %></p>
+  <% end %>
+
+  <%= text_field_tag :email, params[:email], placeholder: 'Email' %>
+  <%= password_field_tag :password, nil, placeholder: 'Password' %>
+
+  <%= submit_tag 'Sign me in' %>
+  <p><%= link_to "Forgot my password", new_password_reset_path %></p>
+<% end %>

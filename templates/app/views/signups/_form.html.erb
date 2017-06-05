@@ -1,0 +1,10 @@
+<%= form_for(@user, url: signups_path) do |f| %>
+  <% if @user.errors.any? %>
+    <p class="form-error-message"><%= @user.errors.values.flatten.first %></p>
+  <% end %>
+
+  <%= f.text_field :email, placeholder: 'Email', maxlength: 100 %>
+  <%= f.password_field :password, placeholder: 'Password' %>
+
+  <%= f.submit "Sign up" %>
+<% end %>
