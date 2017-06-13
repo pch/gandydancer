@@ -3,5 +3,5 @@
 --skip-spring
 --skip-coffee
 --skip-turbolinks
---skip-test-unit
+--skip-test
 --template=./template.rb

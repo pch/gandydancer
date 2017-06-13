@@ -19,6 +19,8 @@ for access to the gandydancer command-line utility.
 $ echo 'export PATH="$PATH:$HOME/Code/gandydancer/bin"' >> ~/.bash_profile
 ~~~
 
+**Zsh note**: Modify your `~/.zshrc` file instead of `~/.bash_profile`.
+
 # Usage
 
 Generate a new Rails app using:
