@@ -46,22 +46,18 @@ gem_group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'bundler-audit', '>= 0.5.0', require: false
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails'
 end
 
 gem_group :test do
-  gem 'capybara-webkit'
-  gem 'formulaic'
-  gem 'launchy'
   gem 'timecop'
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'capybara-selenium'
 end
 
 create_file '.ruby-version', '2.4.1'
-copy_file 'dev.rake', 'lib/tasks/dev.rake'
 copy_file 'Procfile', 'Procfile'
 directory 'dotfiles', '.'
 
@@ -70,7 +66,6 @@ template 'README.md.erb', 'README.md', force: true
 run 'chmod a+x bin/setup'
 
 run 'bundle install'
-run 'rails generate rspec:install'
 run 'rails generate simple_form:install'
 
 #
@@ -81,11 +76,7 @@ config = <<-RUBY
     config.generators do |generate|
       generate.helper false
       generate.javascripts false
-      generate.request_specs false
-      generate.routing_specs false
       generate.stylesheets false
-      generate.test_framework :rspec
-      generate.view_specs false
     end
 
     config.action_controller.action_on_unpermitted_parameters = :raise
@@ -163,19 +154,6 @@ inside 'app/views' do
   copy_file 'application/_analytics.html.erb'
 
   template 'layouts/application.html.erb.erb', 'layouts/application.html.erb', force: true
-end
-
-#
-# Specs
-#
-inside 'spec' do
-  remove_file 'rails_helper.rb'
-  remove_file 'spec_helper.rb'
-  copy_file 'rails_helper.rb'
-  copy_file 'spec_helper.rb'
-
-  copy_file 'factory_girl_rspec.rb', 'support/factory_girl.rb'
-  copy_file 'factories.rb', 'factories.rb'
 end
 
 configure_environment 'test', 'config.active_job.queue_adapter = :inline'
