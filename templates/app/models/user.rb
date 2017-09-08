@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true,
     uniqueness: true,
-    email: true
+
+  validates_with EmailAddress::ActiveRecordValidator, field: :email
 end

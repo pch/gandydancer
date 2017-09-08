@@ -182,7 +182,7 @@ unless ENV['SKIP_AUTH']
   # User auth boilerplate
   #
   gem 'bcrypt', '~> 3.1.7'
-  gem 'email_validator'
+  gem 'email_address'
 
   run 'rails g model user email password_digest auth_token:string:index password_reset_token password_reset_sent_at:datetime role'
 
