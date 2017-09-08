@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
   def create
-    user = User.find_by_email(params[:email])
+    user = User.by_insensitive_email(params[:email])
     user.send_password_reset if user
 
     redirect_to root_url, notice: t('passwords.reset_email_sent')

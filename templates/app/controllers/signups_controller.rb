@@ -7,6 +7,7 @@ class SignupsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.email = @user.email.downcase
 
     if @user.save
       cookies[:auth_token] = @user.auth_token

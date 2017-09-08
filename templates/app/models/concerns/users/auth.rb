@@ -13,6 +13,12 @@ module Users
       before_create { generate_token(:auth_token) }
     end
 
+    module ClassMethods
+      def by_insensitive_email(email)
+        where("lower(email) = ?", email.downcase).first
+      end
+    end
+
     def logged_in?
       true
     end
